@@ -1,5 +1,6 @@
 package machine;
 
+import java.util.Objects;
 import java.util.Scanner;
 
 public class CoffeeMethods {
@@ -36,10 +37,13 @@ public class CoffeeMethods {
 
     public void buy() {
         System.out.println("What do you want to buy? 1 - espresso, 2 - latte, 3 - cappuccino, back - to main menu:");
-        int value = scanner.nextInt();
+        String value = scanner.next();
+        if (value.equals("back")) {
+            options(scanner.next());
+        }
         isEnough();
         for (CoffeeVariant cof : CoffeeVariant.values()) {
-            if (cof.value == value && enough) {
+            if (Objects.equals(cof.value, value) && enough) {
                 coffeeMachine.setWater(coffeeMachine.getWater() - cof.water);
                 coffeeMachine.setMilk(coffeeMachine.getMilk() - cof.milk);
                 coffeeMachine.setBeans(coffeeMachine.getBeans() - cof.beans);
