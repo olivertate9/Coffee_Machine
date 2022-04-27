@@ -3,7 +3,9 @@ package machine;
 public enum CoffeeVariant {
     ESPRESSO("1", 250, 0, 16, 1, 4),
     LATTE("2", 350, 75, 20, 1, 7),
-    CAPPUCCINO("3", 200, 100, 12, 1, 6);
+    CAPPUCCINO("3", 200, 100, 12, 1, 6),
+    BACK("back", 0, 0, 0, 0, 0);
+
 
     final String value;
     final int water;

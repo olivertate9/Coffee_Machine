@@ -38,8 +38,8 @@ public class CoffeeMethods {
     public void buy() {
         System.out.println("What do you want to buy? 1 - espresso, 2 - latte, 3 - cappuccino, back - to main menu:");
         String value = scanner.next();
-        if (value.equals("back")) {
-            options(scanner.next());
+        if (value.equals(CoffeeVariant.BACK.value)) {
+            return;
         }
         isEnough();
         for (CoffeeVariant cof : CoffeeVariant.values()) {
@@ -51,9 +51,11 @@ public class CoffeeMethods {
                 coffeeMachine.setMoney(coffeeMachine.getMoney() + cof.money);
             }
         }
+
     }
 
     public void isEnough() {
+        String back = CoffeeVariant.BACK.value;
         if (coffeeMachine.getWater() < CoffeeVariant.ESPRESSO.water ||
                 coffeeMachine.getWater() < CoffeeVariant.LATTE.water ||
                 coffeeMachine.getWater() < CoffeeVariant.CAPPUCCINO.water) {
